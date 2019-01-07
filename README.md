@@ -2,11 +2,7 @@
 
 ## The *juice* documentation website
 
-*juice* is an open source programming language, currently in development, which is statically typed, has a clean and modern syntax and is easy to use.
-
-*juice*’s type system guarantees memory-safety and thread-safety, which helps you to find many classes of bugs at compile-time.
-
-The syntax of *juice* is heavily inspired by Swift, but also introduces some elements from C/C++, Rust and Python. The code looks like this:
+*juice* is an open source programming language, currently in development, which is statically typed, has a clean and modern syntax and is easy to use. It’s very likely, that it will in the end generate executables using LLVM, but right now there is only a VM-based prototype in work. *juice’s* type system guarantees memory-safety and thread-safety, which helps you to find many classes of bugs at compile-time. The syntax of *juice* is heavily inspired by Swift, but also introduces some elements from C/C++, Rust and Python. The code looks like this:
 
 ```swift
 namespace Geometry {
