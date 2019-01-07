@@ -1,0 +1,5 @@
+theme: jekyll-theme-cayman
+exclude: README.md
+
+title: "juice Documentation"
+description: "The juice programming language"
