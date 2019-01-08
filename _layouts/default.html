@@ -77,5 +77,10 @@
 
         <script src="{{ '/assets/js/jquery.js' | relative_url }}"></script>
         <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+        {% if page.js %}
+            {% for js in page.js %}
+                <script src="{{ js.url }}" integrity="{{ js.integrity }}" crossorigin="anonymous"></script>
+            {% endfor %}
+        {% endif %}
     </body>
 </html>

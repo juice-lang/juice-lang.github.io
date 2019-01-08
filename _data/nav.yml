@@ -1,3 +1,13 @@
 navigationitems:
     - title: "Introduction"
       url: "/introduction"
+    - title: "Basics"
+      url: "/basics"
+    - title: "Custom Types"
+      url: "/custom-types"
+    - title: "Advanced Types"
+      url: "/advanced-types"
+    - title: "Operators"
+      url: "/operators"
+    - title: "Appendix"
+      url: "/appendix"

@@ -1,0 +1,31 @@
+---
+layout: "default"
+js:
+    - url: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity: "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    - url: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity: "sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+---
+
+<h1 id="appendix">Appendix</h1>
+<hr>
+<div class="accordion" id="accordionAppendixes">
+    {% for appendix in site.data.appendix.appendixes %}
+        <div class="card">
+            <div class="card-header" id="headingAppendix{{ appendix.letter }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAppendix{{ appendix.letter }}" aria-expanded="false" aria-controls="collapseAppendix{{ appendix.letter }}">
+                        Appendix {{ appendix.letter }} - {{ appendix.topic }}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseAppendix{{ appendix.letter }}" class="collapse" aria-labelledby="headingAppendix{{ appendix.letter }}" data-parent="#accordionAppendixes">
+                <div class="card-body">
+                    {% capture appendixInclude %}{% include  appendix-{{ appendix.letter | downcase }}.md %}{% endcapture %}
+                    {{ appendixInclude | markdownify }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
