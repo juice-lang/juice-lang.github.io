@@ -1,5 +1,9 @@
 url: "https://juice-lang.github.io"
 exclude: README.md
 
-title: "juice Documentation"
-description: "The juice programming language"
+title: "juice-lang documentation"
+description: "The juice programming language documentation"
+
+google_analytics: "UA-79174176-3"
+plugins:
+  - jekyll-sitemap
