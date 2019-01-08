@@ -1,3 +1,8 @@
+---
+before: "/advanced-types"
+after: "/appendix"
+---
+
 # Operators
 
 ---

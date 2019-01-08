@@ -1,3 +1,8 @@
+---
+before: "/basics"
+after: "/advanced-types"
+---
+
 # Custom Types
 
 ---

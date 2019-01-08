@@ -1,3 +1,8 @@
+---
+before: "/introduction"
+after: "/custom-types"
+---
+
 # Basics
 
 ---

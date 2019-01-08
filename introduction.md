@@ -1,3 +1,8 @@
+---
+before: "/"
+after: "/basics"
+---
+
 # Introduction
 
 ---

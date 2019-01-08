@@ -1,3 +1,8 @@
+---
+before: "/custom-types"
+after: "/operators"
+---
+
 # Advanced Types
 
 ---
