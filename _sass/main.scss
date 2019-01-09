@@ -23,6 +23,12 @@ body {
   max-width: 960px;
 }
 
+.navbar-dark .navbar-brand {
+  &:hover, &:active, &:focus {
+    color: $navbar-dark-hover-color;
+  }
+}
+
 .button-borderless {
   &, &:hover, &:active, &:focus {
     outline: none;
