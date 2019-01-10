@@ -56,7 +56,7 @@ System.print(string) // Prints "Hello World!"
 
 We’re allowed to change the value that `string` binds to from `"Hello"` to `"Hello World!"` when `mut` is used. In some cases, you’ll want to make a variable mutable because it makes the code more convenient to write than if it had only immutable variables.
 
->**Note:** If a stored value in your code won’t change, always declare it as a immutable variable. Use the `mut` keyword only for storing values that need to be able to change.
+> **Note:** If a stored value in your code won’t change, always declare it as a immutable variable. Use the `mut` keyword only for storing values that need to be able to change.
 
 *juice* is a type-safe language so you can't set another type to a already declared variable:
 
@@ -120,7 +120,7 @@ let x = MAX_VALUE / 2
 // at compile time
 ```
 
->**Note:** As you have seen in the examples above *juice’s* naming conventions for variables and constants differ. The convention for variable names is `lowerCamelCase` whereas constants are normally written in C-macro styled `SCREAMING_SNAKE_CASE`.
+> **Note:** As you have seen in the examples above *juice’s* naming conventions for variables and constants differ. The convention for variable names is `lowerCamelCase` whereas constants are normally written in C-macro styled `SCREAMING_SNAKE_CASE`.
 
 ### Tuples
 
