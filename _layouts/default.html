@@ -91,7 +91,11 @@
         <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
         {% if page.js %}
             {% for js in page.js %}
-                <script src="{{ js.url }}" integrity="{{ js.integrity }}" crossorigin="anonymous"></script>
+                {% if js.local %}
+                    <script src="{{ js.url | relative_url }}"></script>
+                {% else %}
+                    <script src="{{ js.url }}" integrity="{{ js.integrity }}" crossorigin="anonymous"></script>
+                {% endif %}
             {% endfor %}
         {% endif %}
     </body>
