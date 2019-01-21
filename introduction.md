@@ -1,6 +1,7 @@
 ---
 before: "/"
 after: "/basics"
+math: false
 ---
 
 # Introduction

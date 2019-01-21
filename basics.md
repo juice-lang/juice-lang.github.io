@@ -1,6 +1,7 @@
 ---
 before: "/introduction"
 after: "/custom-types"
+math: true
 ---
 
 # Basics
@@ -10,6 +11,9 @@ after: "/custom-types"
 ## Contents
 
 1. [Variables and Constants](#variables-and-constants)
+1. [Data Types](#data-types)
+    1. [Scalar Types](#scalar-types)
+    1. [Collection Types](#collection-types)
 
 ---
 
@@ -160,3 +164,111 @@ System.print("The status code is \(http404Error.0)")
 System.print("The status message is '\(http404Error.1)'")
 // Prints "The status message is 'Not Found'"
 ```
+
+---
+
+## Data Types
+
+Every value in *juice* is of a certain data type, which tells *juice* what kind of data is being specified so it knows how to work with that data. There are many basic built-in types in *juice’s* standard library.
+
+### Scalar Types
+
+A scalar type represents a single value. *juice* has four primary scalar types: integers, floating-point numbers, booleans, and characters. You may recognize these from other programming languages. Let’s jump into how they work in *juice*.
+
+#### Integer Types
+
+An integer is a number without a fractional component. There are many integer types, each either signed or unsigned and of a specific bit size. This table shows *juice’s* built-in integer types:
+
+| Bit-size  | Signed    | Unsigned  |
+| :-------- | :-------- | :-------- |
+| 8-bit     | `Int8`    | `UInt8`   |
+| 16-bit    | `Int16`   | `UInt16`  |
+| 32-bit    | `Int32`   | `UInt32`  |
+| 64-bit    | `Int64`   | `UInt64`  |
+| 128-bit   | `Int128`  | `UInt128` |
+| arch      | `Int`     | `UInt`    |
+
+Each variant can be either signed or unsigned and has an explicit size. Signed and unsigned refer to whether it’s possible for the number to be negative or positive — in other words, whether the number needs to have a sign with it (signed) or whether it will only ever be positive and can therefore be represented without a sign (unsigned). Signed numbers are stored using two’s complement representation.
+
+Each signed variant can store numbers from $-(2^{n - 1})$ to $2^{n - 1} - 1$ inclusive, where $n$ is the number of bits that variant uses. So an `Int8` can store numbers from $-(2^7)$ to $2^7 - 1$, which equals $-128$ to $127$. Unsigned variants can store numbers from $0$ to $2^{n - 1}$, so a `UInt8` can store numbers from $0$ to $2^8 - 1$, which equals $0$ to $255$.
+
+Additionally, the `Int` and `UInt` types depend on the kind of computer your program is running on: 64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit architecture.
+
+You can write integer literals in any of the forms shown in following Table:
+
+| Number literals | Example         |
+| :-------------- | :-------------- |
+| Decimal         | `5263`          |
+| Hex             | `0xFF`          |
+| Octal           | `0o54`          |
+| Binary          | `0b10100101`    |
+
+Additionally you can add extra formatting to any of this literals using `_`, for example: `1_234_567` or `0xFC5D_61C4`.
+
+So how do you know which type of integer to use? In most cases you will just use the normal `Int` type, because it‘s *juice‘s* default integer type and aids code consistency and interoperability.
+
+##### Integer Overflow
+
+Let’s say that you have a `UInt8`, which can hold values between zero and $255$. What happens if you try to change it to $256$? In *juice* it‘s considered an error to overflow an integer so when this happens, the program will stop and provide you an error message.
+
+#### Floating-Point Types
+
+*juice* also has two primitive types for floating-point numbers, which are represented according to the IEEE-754 standard: `Float` has single-precision and is 32 bits in size, and `Double`has double-precision and is 64 bits in size. The default type is `Double` because on modern CPUs it’s roughly the same speed as `Float` but is capable of more precision.
+
+#### Numeric Operations
+
+*juice* supports the basic mathematical operations you’d expect for all of the number types: addition, subtraction, multiplication, division, and remainder. The following code shows how you’d use each one in a let statement:
+
+```swift
+// addition
+let sum = 5 + 10
+
+// subtraction
+let difference = 95.5 - 4.3
+
+// multiplication
+let product = 4 * 30
+
+// division
+let quotient = 56.7 / 32.2
+
+// remainder
+let remainder = 43 % 5
+```
+
+Each expression in these statements uses a mathematical operator and evaluates to a single value, which is then bound to a variable. [Appendix B]({{ '/appendix#collapseAppendixB' | relative_url }}) contains a list of all operators that *juice* provides.
+
+#### The Boolean Type
+
+*juice* has a basic Boolean type, called `Bool`. Boolean values are referred to as logical, because they can only ever be true or false. Swift provides two Boolean constant values, `true` and `false`:
+
+```swift
+let candyIsDelicious = true
+let trumpIsStupid = false //definitely :D
+```
+
+The main way to use Boolean values is through conditionals, such as an **if-expression**. We’ll cover how **if-expressions** work in *juice* in the [Control Flow](#control-flow) section.
+
+#### The Character type
+
+So far we’ve worked only with numbers, but *juice* supports letters too. *juice‘s* `Char` type is the language’s most primitive alphabetic type, and the following code shows one way to use it. (Note that the `Char` literal is specified with single quotes, as opposed to string literals, which use double quotes.)
+
+```swift
+let exclamationMark = '!'
+let emoji = '😎'
+let newline = '\n'
+```
+
+Every instance of *juice‘s* `Char` type represents a single **extended grapheme cluster**, which means it can represent a lot more than just ASCII. Accented letters; Chinese, Japanese, and Korean characters; emoji; and zero-width spaces are all valid char values in *juice*. In fact extended grapheme clusters are a sequence of one or more Unicode scalars that (when combined) produce a single human-readable character.
+
+Here’s an example. The letter `é` can be represented as the single Unicode scalar `é` (`LATIN SMALL LETTER E WITH ACUTE`, or `U+00E9`). However, the same letter can also be represented as a pair of scalars — a standard letter `e` (`LATIN SMALL LETTER E`, or `U+0065`), followed by the `COMBINING ACUTE ACCENT` scalar (`U+0301`).
+
+```swift
+let eAcute = '\u{E9}' // é
+let combinedEAcute = '\u{65}\u{301}' // e followed by ́
+// eAcute is é, combinedEAcute is also é
+```
+
+### Collection Types
+
+Not written yet.

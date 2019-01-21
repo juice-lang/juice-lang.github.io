@@ -2,6 +2,7 @@
 title: "Start"
 before: null
 after: "/introduction"
+math: false
 ---
 
 # The *juice* documentation
