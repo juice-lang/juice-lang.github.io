@@ -36,8 +36,8 @@ namespace Geometry {
         }
 
         init(Point center, Size #size) {
-            let originX = center.x - (size.width / 2)
-            let originY = center.y - (size.height / 2)
+            var originX = center.x - (size.width / 2)
+            var originY = center.y - (size.height / 2)
             self.init(Point(x: originX, y: originY), size)
         }
 
@@ -46,29 +46,29 @@ namespace Geometry {
             It’s not neccessary to write self every time.
             I just like to do it.
             */
-            let centerX = self.origin.x + (self.size.width / 2)
-            let centerY = self.origin.y + (self.size.height / 2)
+            var centerX = self.origin.x + (self.size.width / 2)
+            var centerY = self.origin.y + (self.size.height / 2)
             return Point(x: centerX, y: centerY)
         }
 
         Rect scaledBy(Double #multiplicator) {
-            let newWidth = self.size.width * multiplicator
-            let newHeight = self.size.height * multiplicator
-            let newSize = Size(width: newWidth, height: newHeight)
+            var newWidth = self.size.width * multiplicator
+            var newHeight = self.size.height * multiplicator
+            var newSize = Size(width: newWidth, height: newHeight)
             return Rect(center: self.center, newSize)
         }
     }
 }
 
-let point = Geometry::Point(x: 30.0, y: 50.0)
-let size = Geometry::Size(width: 20.0, height: 20.0)
+var point = Geometry::Point(x: 30.0, y: 50.0)
+var size = Geometry::Size(width: 20.0, height: 20.0)
 
-let rect = Geometry::Rect(center: point, size)
+var rect = Geometry::Rect(center: point, size)
 
 System.print(rect.origin)
 // Prints "Geometry::Point(x: 20.0, y: 40.0)"
 
-let scaledRect = rect.scaledBy(4.0)
+var scaledRect = rect.scaledBy(4.0)
 
 System.print(scaledRect.origin)
 // Prints "Geometry::Point(x: -10.0, y: 10.0)"

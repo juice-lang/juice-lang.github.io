@@ -21,10 +21,10 @@ math: true
 
 ### Variable Declaration
 
-You declare variables using the `let` keyword. By default they are immutable.
+You declare variables using the `var` keyword. By default they are immutable.
 
 ```swift
-let string = "Hello"
+var string = "Hello"
 System.print(string) // Prints "Hello"
 string = "Hello World!"
 //This is a compile-time error, because a variable is immutable and cannot be changed
@@ -34,14 +34,14 @@ string = "Hello World!"
 You can declare multiple variables on a single line, separated by commas:
 
 ```swift
-let x = 0, y = 0, z = 0
+var x = 0, y = 0, z = 0
 // `x`, `y` and `z` have each the value 0
 ```
 
 If all values of this variables are the same, you can omit the redundant assignments, so the example above can be written as:
 
 ```swift
-let x, y, z = 0
+var x, y, z = 0
 // `x`, `y` and `z` have each the value 0
 ```
 
@@ -52,7 +52,7 @@ In *juice*, the compiler guarantees that when you state that a value won’t cha
 But mutability can be very useful. Variables are immutable only by default, you can make them mutable by adding `mut` in front of the variable declaration:
 
 ```swift
-mut let string = "Hello"
+mut var string = "Hello"
 System.print(string) // Prints "Hello"
 string = "Hello World!"
 System.print(string) // Prints "Hello World!"
@@ -65,7 +65,7 @@ We’re allowed to change the value that `string` binds to from `"Hello"` to `"H
 *juice* is a type-safe language so you can't set another type to a already declared variable:
 
 ```swift
-mut let number = 3
+mut var number = 3
 //Type infered to be an Int
 number = "Not a number"
 //This is a compile-time error, because you can't set a variable of type Int to a String
@@ -74,10 +74,10 @@ number = "Not a number"
 
 ### Type Annotations
 
-You can provide a ***type annotation*** when you declare a variable, to be clear about the type of values the variable can store (read more about types [here](#data-types)). Provide a type annotation by writing the type instead of the `let` keyword. This is rarely needed, for example when you want to declare a variable of type `Float` instead of `Double`:
+You can provide a ***type annotation*** when you declare a variable, to be clear about the type of values the variable can store (read more about types [here](#data-types)). Provide a type annotation by writing the type instead of the `var` keyword. This is rarely needed, for example when you want to declare a variable of type `Float` instead of `Double`:
 
 ```swift
-let double = 5.0
+var double = 5.0
 //Type infered to be a Double
 Float float1 = 5.0
 // `float1` is of type Float
@@ -118,9 +118,9 @@ const MAX_VALUE = 1000
 If you use a constant in your code, it gets replaced with the value at compile time:
 
 ```swift
-let x = MAX_VALUE / 2
+var x = MAX_VALUE / 2
 // This line gets changed to
-// `let x = 1000 / 2`
+// `var x = 1000 / 2`
 // at compile time
 ```
 
@@ -131,7 +131,7 @@ let x = MAX_VALUE / 2
 Tuples group multiple values into a single compound value. The values within a tuple can be of any type and don’t have to be of the same type as each other. You can create tuples from any permutation of types, and they can contain as many different types as you like. There’s nothing stopping you from having a tuple of type `(Int, Int, Int)`, or `(String, Bool)`, or indeed any other permutation you require:
 
 ```swift
-let http404Error = (404, "Not Found")
+var http404Error = (404, "Not Found")
 // Type infered to be (Int, String)
 ```
 
@@ -145,9 +145,9 @@ You can write the ***type annotation*** of a tuple variable exactly like with no
 You can decompose a tuple’s contents into separate constants or variables, which you then access as usual:
 
 ```swift
-let xyzCoordinate = (15.0, 20.0, 10.0)
+var xyzCoordinate = (15.0, 20.0, 10.0)
 // `xyzCoordinate` is of type (Double, Double, Double)
-let (x, y, z) = xyzCoordinate
+var (x, y, z) = xyzCoordinate
 // `x`, `y` and `z` are now each of type Double
 System.print("x: \(x)") // Prints "x: 15.0"
 System.print("y: \(y)") // Prints "y: 20.0"
@@ -157,7 +157,7 @@ System.print("z: \(z)") // Prints "z: 10.0"
 Alternatively, access the individual element values in a tuple using index numbers starting at zero:
 
 ```swift
-let http404Error = (404, "Not Found")
+var http404Error = (404, "Not Found")
 
 System.print("The status code is \(http404Error.0)")
 // Prints "The status code is 404"
@@ -217,23 +217,23 @@ Let’s say that you have a `UInt8`, which can hold values between zero and $255
 
 #### Numeric Operations
 
-*juice* supports the basic mathematical operations you’d expect for all of the number types: addition, subtraction, multiplication, division, and remainder. The following code shows how you’d use each one in a let statement:
+*juice* supports the basic mathematical operations you’d expect for all of the number types: addition, subtraction, multiplication, division, and remainder. The following code shows how you’d use each one in a var statement:
 
 ```swift
 // addition
-let sum = 5 + 10
+var sum = 5 + 10
 
 // subtraction
-let difference = 95.5 - 4.3
+var difference = 95.5 - 4.3
 
 // multiplication
-let product = 4 * 30
+var product = 4 * 30
 
 // division
-let quotient = 56.7 / 32.2
+var quotient = 56.7 / 32.2
 
 // remainder
-let remainder = 43 % 5
+var remainder = 43 % 5
 ```
 
 Each expression in these statements uses a mathematical operator and evaluates to a single value, which is then bound to a variable. [Appendix B]({{ '/appendix#collapseAppendixB' | relative_url }}) contains a list of all operators that *juice* provides.
@@ -243,8 +243,8 @@ Each expression in these statements uses a mathematical operator and evaluates t
 *juice* has a basic Boolean type, called `Bool`. Boolean values are referred to as logical, because they can only ever be true or false. Swift provides two Boolean constant values, `true` and `false`:
 
 ```swift
-let candyIsDelicious = true
-let trumpIsStupid = false //definitely :D
+var candyIsDelicious = true
+var trumpIsStupid = false //definitely :D
 ```
 
 The main way to use Boolean values is through conditionals, such as an **if-expression**. We’ll cover how **if-expressions** work in *juice* in the [Control Flow](#control-flow) section.
@@ -254,9 +254,9 @@ The main way to use Boolean values is through conditionals, such as an **if-expr
 So far we’ve worked only with numbers, but *juice* supports letters too. *juice‘s* `Char` type is the language’s most primitive alphabetic type, and the following code shows one way to use it. (Note that the `Char` literal is specified with single quotes, as opposed to string literals, which use double quotes.)
 
 ```swift
-let exclamationMark = '!'
-let emoji = '😎'
-let newline = '\n'
+var exclamationMark = '!'
+var emoji = '😎'
+var newline = '\n'
 ```
 
 Every instance of *juice‘s* `Char` type represents a single **extended grapheme cluster**, which means it can represent a lot more than just ASCII. Accented letters; Chinese, Japanese, and Korean characters; emoji; and zero-width spaces are all valid char values in *juice*. In fact extended grapheme clusters are a sequence of one or more Unicode scalars that (when combined) produce a single human-readable character.
@@ -264,8 +264,8 @@ Every instance of *juice‘s* `Char` type represents a single **extended graphem
 Here’s an example. The letter `é` can be represented as the single Unicode scalar `é` (`LATIN SMALL LETTER E WITH ACUTE`, or `U+00E9`). However, the same letter can also be represented as a pair of scalars — a standard letter `e` (`LATIN SMALL LETTER E`, or `U+0065`), followed by the `COMBINING ACUTE ACCENT` scalar (`U+0301`).
 
 ```swift
-let eAcute = '\u{E9}' // é
-let combinedEAcute = '\u{65}\u{301}' // e followed by ́
+var eAcute = '\u{E9}' // é
+var combinedEAcute = '\u{65}\u{301}' // e followed by ́
 // eAcute is é, combinedEAcute is also é
 ```
 
