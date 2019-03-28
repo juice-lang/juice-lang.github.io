@@ -187,6 +187,7 @@ An integer is a number without a fractional component. There are many integer ty
 | 64-bit    | `Int64`   | `UInt64`  |
 | 128-bit   | `Int128`  | `UInt128` |
 | arch      | `Int`     | `UInt`    |
+{: .table .w-75 .mx-auto}
 
 Each variant can be either signed or unsigned and has an explicit size. Signed and unsigned refer to whether it’s possible for the number to be negative or positive — in other words, whether the number needs to have a sign with it (signed) or whether it will only ever be positive and can therefore be represented without a sign (unsigned). Signed numbers are stored using two’s complement representation.
 
@@ -202,6 +203,7 @@ You can write integer literals in any of the forms shown in following Table:
 | Hex             | `0xFF`          |
 | Octal           | `0o54`          |
 | Binary          | `0b10100101`    |
+{: .table .w-75 .mx-auto}
 
 Additionally you can add extra formatting to any of this literals using `_`, for example: `1_234_567` or `0xFC5D_61C4`.
 
