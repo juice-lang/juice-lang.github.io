@@ -25,7 +25,7 @@
     </head>
     <body>
         <div class="header-container container-fluid" role="banner">
-            <div class="container container-responsive">
+            <div class="container container-responsive p-0">
                 <nav class="navbar header navbar-expand-md navbar-dark d-flex">
                     <a class="navbar-brand mr-auto" href="{{ site.url }}">
                         <h1 class="display-4">
@@ -46,7 +46,7 @@
         <div class="nav-container container-fluid">
             <div class="container container-responsive">
                 <nav class="navbar navbar-expand-md navbar-dark p-0 w-100">
-                    <ul class="navbar-nav nav-justified w-100 d-none d-md-flex">
+                    <ul class="navbar-nav nav-fill w-100 d-none d-md-flex">
                         {% for item in site.data.nav.navigationitems %}
                             <li class="nav-item">
                                 <a class="nav-link{% if item.url == url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>

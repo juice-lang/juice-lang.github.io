@@ -43,7 +43,8 @@ body {
     margin-top: 4px;
     width: 22px;
     height: 2px;
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;;
+    border-radius: 1px;
+    transition: transform .4s ease-in-out 0s, width .35s ease-in-out 0s;
   }
 
   .top-bar {
@@ -52,7 +53,7 @@ body {
   }
 
   .middle-bar {
-    opacity: 0;
+    width: 0;
   }
 
   .bottom-bar {
@@ -61,12 +62,16 @@ body {
   }
 
   &.collapsed {
+    .icon-bar {
+      transition-delay: 0s, .05s;
+    }
+
     .top-bar, .bottom-bar {
       transform: rotate(0);
     }
 
     .middle-bar {
-      opacity: 1;
+      width: 22px;
     }
   }
 }
